@@ -1,0 +1,11 @@
+.ogtags label {
+	width: 190px;
+	display: inline-block;
+	margin: 8px 10px;
+}
+
+.ogtags input[type='text'] {
+	width: 500px;
+	vertical-align: middle;
+	padding: 5px 10px;
+}
