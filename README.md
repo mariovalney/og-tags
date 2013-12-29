@@ -96,3 +96,12 @@ Tested up to: 3.8
 Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+=======
+A plugin for optimization of Wordpress in Facebook Open Graph API.
+
+
+OG Tags
+=======
+
+Um plugin para otimização do Wordpress na API do Facebook: Open Graph API.
+Você tem uma pequena área de administração na qual pode indicar seu ID para administração, o link da sua página, bem como escolher uma descrição ou um título diferentes dos padrões para suas OG tags.
