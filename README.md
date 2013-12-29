@@ -3,7 +3,10 @@ OG Tags
 
 OG Tags includes the tags necessary to integrate your website to Facebook with almost no configuration. Automatic. Simple.
 
-== Description ==
+______________
+
+
+### Description
 
 O que "OG Tags" faz:
 
@@ -19,7 +22,7 @@ Idioma:
 
 A Open Graph API não faz diferença quanto idiomas, mas a Documentação e a Página de Opções estão em português brasileiro.
 
-______________
+_____
 
 
 Features of "OG Tags":
@@ -36,7 +39,10 @@ Language:
 
 Open Graph does not make difference about languages, but the Documentation and the Options Page are in Brazilian Portuguese.
 
-== Installation ==
+______________
+
+
+### Installation
 
 Após o download do arquivo ZIP:
 1. Faça o login no seu site e navegue até o menu "Plugins".
@@ -48,6 +54,19 @@ Após o download do arquivo ZIP:
 
 O plugin irá guardar sus configurações no Banco de Dados. 
 Não se preocupe, isso será automático na ativação do plugin e quando você desativá-lo (esperamos que não faça isso) essas opções serão apagadas.
+
+_____
+
+
+After downloading the ZIP file: 
+1.  Login to your WordPress site administrator panel and head over the 'Plugins' menu  
+2.  Click 'Add New'.
+3.  Choose the 'Upload' option.
+4.  Click **Choose file** and select the OG Tags zip file.  
+5.  Click **Install Now** button.  
+6.  Once it is complete, activate the plugin.
+
+______________
 
 ### Configurações
 
@@ -62,17 +81,10 @@ Você deve separá-los por um espaço e a forma mais fácil de achar seu ID é d
 ______________
 
 
-After downloading the ZIP file: 
-1.  Login to your WordPress site administrator panel and head over the 'Plugins' menu  
-2.  Click 'Add New'.
-3.  Choose the 'Upload' option.
-4.  Click **Choose file** and select the OG Tags zip file.  
-5.  Click **Install Now** button.  
-6.  Once it is complete, activate the plugin.
-
-== Changelog ==
+### Changelog
 
 = 1.0 =
+
 * Inclui o tipo de objeto Open Graph ("website" para a página inicial e "article" para os posts e artigos).
 * Inclui as tag com propriedades nas página e acordo com a documentação da Open Graph API.
 * Inclui seu ID como administrador dos Plugins Sociais como o de Comentários.
@@ -82,11 +94,12 @@ After downloading the ZIP file:
 * Uma página com poucas configurações. Queremos que seja tudo simples! Automático.
 
 = 1.1 =
+
 * Criado o readme.txt
 * Inserido no reposítório oficial Wordpress
 * Retiramos o arquivo og-admin.php que processava a área de administração e incluímos seu conteúd no arquivo principal og-tags.php
 
-== Credits ==
+### Credits
 
 Contributors: @mariovalney
 URL: http://projetos.jangal.com.br/ogtags
@@ -96,12 +109,3 @@ Tested up to: 3.8
 Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-=======
-A plugin for optimization of Wordpress in Facebook Open Graph API.
-
-
-OG Tags
-=======
-
-Um plugin para otimização do Wordpress na API do Facebook: Open Graph API.
-Você tem uma pequena área de administração na qual pode indicar seu ID para administração, o link da sua página, bem como escolher uma descrição ou um título diferentes dos padrões para suas OG tags.
