@@ -1,9 +1,18 @@
-OG Tags
-=======
+=== OG Tags ===
+Contributors: mariovalney
+Donate link: http://projetos.jangal.com.br/ogtags
+Tags: open graph, facebook, social, tags, Social Plugins
+Requires at least: 3.8
+Tested up to: 3.8
+Stable tag: 1.1
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 OG Tags includes the tags necessary to integrate your website to Facebook with almost no configuration. Automatic. Simple.
 
 == Description ==
+
+###[OG Tags](http://projetos.jangal.com.br/ogtags)
 
 O que "OG Tags" faz:
 
@@ -21,6 +30,8 @@ A Open Graph API não faz diferença quanto idiomas, mas a Documentação e a P�
 
 ______________
 
+
+###[OG Tags](http://projetos.jangal.com.br/ogtags)
 
 Features of "OG Tags":
 
@@ -86,13 +97,5 @@ After downloading the ZIP file:
 * Inserido no reposítório oficial Wordpress
 * Retiramos o arquivo og-admin.php que processava a área de administração e incluímos seu conteúd no arquivo principal og-tags.php
 
-== Credits ==
-
-Contributors: @mariovalney
-URL: http://projetos.jangal.com.br/ogtags
-Tags: open graph, facebook, social, tags, Social Plugins
-Requires at least: 3.8
-Tested up to: 3.8
-Stable tag: 1.1
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+== Screenshots ==
+1.  OG Tags - Área de Administração
