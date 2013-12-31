@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: OG Tags
-Plugin URI: https://github.com/mariovalney/og-tags
+Plugin URI: http://projetos.jangal.com.br/ogtags/
 Description: Um plugin para otimização das Open Graph Tags em sites Wordpress.
-Version: 1.1
+Version: 1.1.2
 Author: Mário Valney
 Author URI: http://mariovalney.jangal.com.br
 
@@ -37,11 +37,14 @@ function ogtags_install() {
 	$ogdescricaodoblog = get_bloginfo('description');
 	
 	// ADD TO WP_OPTIONS
-	add_option( 'ogtags_fbadmins', $ogtags_install_fbdmins );
-	add_option( 'ogtags_publisher', $ogtags_install_publisher );
-	add_option( 'ogtags_image_default', $ogtags_install_image_default );
-	add_option( 'ogtags_nomedoblog', $ognomedoblog );
-	add_option( 'ogtags_descricaodoblog', $ogdescricaodoblog );
+	$ogtags_options = array('ogtags_fbadmins' => $ogtags_install_fbdmins, 
+		'ogtags_publisher' => $ogtags_install_publisher ,
+		'ogtags_image_default' => $ogtags_install_image_default ,
+		'ogtags_nomedoblog' => $ognomedoblog ,
+		'ogtags_descricaodoblog' => $ogdescricaodoblog );
+
+	add_option( 'ogtags_options', $ogtags_options );
+	
 }
 
 // UNINSTALL
@@ -49,11 +52,7 @@ register_deactivation_hook( __FILE__, 'ogtags_uninstall' );
 
 function ogtags_uninstall() {
 	// EXCLUDE FROM WP_OPTIONS
-	delete_option( 'ogtags_fbadmins' );
-	delete_option( 'ogtags_publisher' );
-	delete_option( 'ogtags_image_default' );
-	delete_option( 'ogtags_nomedoblog' );
-	delete_option( 'ogtags_descricaodoblog' );
+	delete_option( 'ogtags_options' );
 }
 
 // ADMINISTRATION
@@ -87,12 +86,19 @@ if (isset($_POST["ogtags_update_ogdescricaodoblog"])) {
 
 // ADD TO WP_OPTIONS
 if (isset($_POST["ogtags_form"])) {
-	update_option( 'ogtags_fbadmins', $ogtags_update_fbdmins );
-	update_option( 'ogtags_publisher', $ogtags_update_publisher );
-	update_option( 'ogtags_image_default', $ogtags_update_image_default );
-	update_option( 'ogtags_nomedoblog', $ogtags_update_ognomedoblog );
-	update_option( 'ogtags_descricaodoblog', $ogtags_update_ogdescricaodoblog );
-} ?>
+	
+	$ogtags_options = array('ogtags_fbadmins' => $ogtags_update_fbdmins, 
+		'ogtags_publisher' => $ogtags_update_publisher ,
+		'ogtags_image_default' => $ogtags_update_image_default ,
+		'ogtags_nomedoblog' => $ogtags_update_ognomedoblog ,
+		'ogtags_descricaodoblog' => $ogtags_update_ogdescricaodoblog );
+
+	update_option( 'ogtags_options', $ogtags_options );
+}
+
+$ogtags_options = get_option( 'ogtags_options' );
+
+?>
 <div class="wrap ogtags">
   <aside class="ogtags-sidebar">
   	<h2>Siga no Twitter!</h2>
@@ -107,16 +113,16 @@ if (isset($_POST["ogtags_form"])) {
   <br>
   <form action="" method="post">
   	<h3> Dados do Site </h3>
-    <label>Nome do site: </label><input type="text" class="nome" name="ogtags_update_ognomedoblog" value="<?php echo get_option( 'ogtags_nomedoblog' ); ?>"/><br>
-	<label>Descrição do site: </label><input type="text" class="descricao" name="ogtags_update_ogdescricaodoblog" value="<?php echo get_option( 'ogtags_descricaodoblog' ); ?>"/><br>
+    <label>Nome do site: </label><input required type="text" class="nome" name="ogtags_update_ognomedoblog" value="<?php echo $ogtags_options['ogtags_nomedoblog']; ?>"/><br>
+	<label>Descrição do site: </label><input required type="text" class="descricao" name="ogtags_update_ogdescricaodoblog" value="<?php echo $ogtags_options['ogtags_descricaodoblog']; ?>"/><br>
     <br>
     <h3> Imagem Padrão </h3>
-    <label>URL da imagem <br> (deve ter pelo menos 200x200): </label><input class="imagem" type="text" name="ogtags_update_image_default" value="<?php echo get_option( 'ogtags_image_default' ); ?>"/>
+    <label>URL da imagem <br> (deve ter pelo menos 200x200): </label><input required class="imagem" type="text" name="ogtags_update_image_default" value="<?php echo $ogtags_options['ogtags_image_default']; ?>"/>
     <br>
     <h3> Dados dos Autores </h3>
-    <label>Link da Página no Facebook: </label><input class="pagina" type="text" name="ogtags_update_publisher" value="<?php echo get_option( 'ogtags_publisher' ); ?>"/><br>
-    <label>ID dos Administradores (separados com um espaço): </label><input class="admins" type="text" name="ogtags_update_fbdmins" value="<?php echo get_option( 'ogtags_fbadmins' ); ?>"/> <br><br>
-  	<INPUT type="hidden" name="ogtags_form" value="yes">
+    <label>Link da Página no Facebook: </label><input required class="pagina" type="text" name="ogtags_update_publisher" value="<?php echo $ogtags_options['ogtags_publisher']; ?>"/><br>
+    <label>ID dos Administradores (separados com um espaço): </label><input required class="admins" type="text" name="ogtags_update_fbdmins" value="<?php echo $ogtags_options['ogtags_fbadmins']; ?>"/> <br><br>
+  	<input type="hidden" name="ogtags_form" value="yes">
   	<input id="send" class="button button-primary" type="submit" value="Salvar Alterações">
   </form>
   <br><br><br>
@@ -144,11 +150,14 @@ add_action( 'wp_head', 'ogtags_insert_tags' );
 function ogtags_insert_tags() {
 
 	// RECEBENDO O VALOR DAS OPÇÕES
-	$ognomedoblog = get_option( 'ogtags_nomedoblog' );
-	$ogdescricaodoblog = get_option( 'ogtags_descricaodoblog' );
-	$ogimagedefault = get_option( 'ogtags_image_default' );
-	$fbadmins = get_option( 'ogtags_fbadmins' );
-	$articlepublisher = get_option( 'ogtags_publisher' );
+	$ogtags_options = get_option( 'ogtags_options' );
+	
+	$ognomedoblog = $ogtags_options['ogtags_nomedoblog'];
+	$ogdescricaodoblog = $ogtags_options['ogtags_descricaodoblog'];
+	$ogimagedefault = $ogtags_options['ogtags_image_default'];
+	$fbadmins = $ogtags_options['ogtags_fbadmins'];
+	$articlepublisher = $ogtags_options['ogtags_publisher'];
+
 	// DEMAIS VARIÁVEIS
 	$ogurldoblog = get_bloginfo('url');
 

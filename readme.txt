@@ -1,10 +1,10 @@
-=== OG Tags ===
+﻿=== OG Tags ===
 Contributors: mariovalney
 Donate link: http://projetos.jangal.com.br/ogtags
 Tags: open graph, facebook, social, tags, Social Plugins
 Requires at least: 3.8
 Tested up to: 3.8
-Stable tag: 1.1
+Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,7 @@ Open Graph does not make difference about languages, but the Documentation and t
 == Installation ==
 
 Após o download do arquivo ZIP:
+
 1. Faça o login no seu site e navegue até o menu "Plugins".
 2. Clique em "Adicionar Novo".
 3. Escolha a opção "Enviar".
@@ -74,6 +75,7 @@ ______________
 
 
 After downloading the ZIP file: 
+
 1.  Login to your WordPress site administrator panel and head over the 'Plugins' menu  
 2.  Click 'Add New'.
 3.  Choose the 'Upload' option.
@@ -95,7 +97,10 @@ After downloading the ZIP file:
 = 1.1 =
 * Criado o readme.txt
 * Inserido no reposítório oficial Wordpress
-* Retiramos o arquivo og-admin.php que processava a área de administração e incluímos seu conteúd no arquivo principal og-tags.php
+* Retiramos o arquivo og-admin.php que processava a área de administração e incluímos seu conteúdo no arquivo principal og-tags.php
+
+= 1.1.2 =
+* Otimizada a consulta ao banco de dados das opções do plugin.
 
 == Screenshots ==
 1.  OG Tags - Área de Administração

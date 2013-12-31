@@ -85,6 +85,10 @@ Você deve separá-los por um espaço e a forma mais fácil de achar seu ID é d
 * Inserido no reposítório oficial Wordpress
 * Retiramos o arquivo og-admin.php que processava a área de administração e incluímos seu conteúd no arquivo principal og-tags.php
 
+#### 1.2
+
+* Otimização da API Options - Wordpress.
+
 ## Credits
 
 Contributors: @mariovalney
@@ -92,6 +96,6 @@ URL: http://projetos.jangal.com.br/ogtags
 Tags: open graph, facebook, social, tags, Social Plugins
 Requires at least: 3.8
 Tested up to: 3.8
-Stable tag: 1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
