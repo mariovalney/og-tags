@@ -1,3 +1,7 @@
+.ogtags h4 {
+	margin-bottom: 0;
+	font-size: 1.1em;
+}
 .ogtags label {
 	width: 190px;
 	display: inline-block;
@@ -8,6 +12,29 @@
 	width: 500px;
 	vertical-align: middle;
 	padding: 5px 10px;
+}
+
+.ogtags input[type='checkbox'] {
+	top: 3px;
+	position: relative;
+}
+
+.ogtags input.imagem {
+	width: 370px!important;
+}
+.ogtags #upload_image_button {
+	vertical-align: middle;
+	height: 31px;
+	margin-left: 18px;
+}
+
+.ogtags-descricao {
+	font-style: italic;
+	font-size: 12px;
+	color: #777;
+	display: inline-block;
+	top: 2px;
+	position: relative;
 }
 
 .ogtags-sidebar {
@@ -22,3 +49,4 @@
 .ogtags-sidebar h2 {
 	margin: 10px 0px;
 }
+

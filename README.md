@@ -85,17 +85,56 @@ Você deve separá-los por um espaço e a forma mais fácil de achar seu ID é d
 * Inserido no reposítório oficial Wordpress
 * Retiramos o arquivo og-admin.php que processava a área de administração e incluímos seu conteúd no arquivo principal og-tags.php
 
+#### 1.0
+
+* Inclui o tipo de objeto Open Graph ("website" para a página inicial e "article" para os posts e artigos).
+* Inclui as tag com propriedades nas página e acordo com a documentação da Open Graph API.
+* Inclui seu ID como administrador dos Plugins Sociais como o de Comentários.
+* Inclui sua Página no Facebook como "publisher" do site no Open Graph.
+* Inclui uma imagem padrão para a Home e para os artigos sem Imagem Destacada.
+* Usa a Imagem Destacada do post como og:image (ou seja, ela irá aparecer no Feed do Facebook).
+* Uma página com poucas configurações. Queremos que seja tudo simples! Automático.
+
+#### 1.1
+
+* Criado o readme.txt
+* Inserido no reposítório oficial Wordpress
+* Retiramos o arquivo og-admin.php que processava a área de administração e incluímos seu conteúdo no arquivo principal og-tags.php
+
+#### 1.1.2
+
+* Otimizada a consulta ao banco de dados das opções do plugin.
+
+#### 1.1.3
+
+* Otimizados os arquivos do plugin.
+* Melhorada a segurança.
+* Integração com o upload do Wordpress para a imagem padrão.
+
+#### 1.1.4
+
+* Integração com o upload do Wordpress para a imagem padrão.
+* (FIX) Bug na apresentação do título em sites com plugins e temas que alteram o wp_title.* Criada uma opção de compatibilidade com plugins e temas que utilizam filtros no wp_title.
+
+### Prévia:
+
 #### 1.2
 
-* Otimização da API Options - Wordpress.
+* Previsão da apresentação do conteúdo na página de edição do post.
+
+#### 1.3
+
+* Edição do título, descrição e foto para páginas estáticas individualmente.
+
+Sugestões e pedidos? Use o fórum -> http://wordpress.org/support/plugin/og-tags
 
 ## Credits
 
 Contributors: @mariovalney
 URL: http://projetos.jangal.com.br/ogtags
 Tags: open graph, facebook, social, tags, Social Plugins
-Requires at least: 3.8
-Tested up to: 3.8
-Stable tag: 1.1.2
+Requires at least: 3.5
+Tested up to: 3.5
+Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html

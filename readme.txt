@@ -2,8 +2,8 @@
 Contributors: mariovalney
 Donate link: http://projetos.jangal.com.br/ogtags
 Tags: open graph, facebook, social, tags, Social Plugins
-Requires at least: 3.8
-Tested up to: 3.8
+Requires at least: 3.5
+Tested up to: 3.5
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -30,7 +30,6 @@ A Open Graph API não faz diferença quanto idiomas, mas a Documentação e a P�
 
 ______________
 
-
 ###[OG Tags](http://projetos.jangal.com.br/ogtags)
 
 Features of "OG Tags":
@@ -44,7 +43,6 @@ Features of "OG Tags":
 * Simple page with less configurations. We want to be simple! Automatic.
 
 Language:
-
 Open Graph does not make difference about languages, but the Documentation and the Options Page are in Brazilian Portuguese.
 
 == Installation ==
@@ -65,14 +63,11 @@ Não se preocupe, isso será automático na ativação do plugin e quando você 
 
 O plugin reconhece o nome e descrição do seu site, que você já configurou, quando estava instalando o Wordpress! Mas, se por algum motivo ou estratégia de divulgação, você quiser alterar esse conteúdo, o plugin deixa livre para você escolher um nome e uma descrição próprios para serem incluidos nas OG Tags e consequentemente serem vistos no Facebook. 
 Para isso, basta preencher os campos acima, na seção "Dados do Site".
-
 Na seção Imagem Padrão, você pode incluir a URL de uma imagem a ser usada tanto para a Home do seu site, quanto nos casos em que o artigo não tem uma Imagem Destacada.
-
 A Open Graph também permite relacionarmos os artigos à uma página do Facebook e é o link dessa página que devemos inserir na seção "Dados dos Autores", além do ID do perfil dos administradores do blog, para que seja possível a moderação e administração dos plugins sociais do Facebook, caso você use algum, por exemplo o sistema de comentários. 
 Você deve separá-los por um espaço e a forma mais fácil de achar seu ID é digitando "http://graph.facebook.com/SEU-NOME-DE-USUÁRIO". Por exemplo: o ID do Mark Zuckerberg é 4.
 
 ______________
-
 
 After downloading the ZIP file: 
 
@@ -86,6 +81,7 @@ After downloading the ZIP file:
 == Changelog ==
 
 = 1.0 =
+
 * Inclui o tipo de objeto Open Graph ("website" para a página inicial e "article" para os posts e artigos).
 * Inclui as tag com propriedades nas página e acordo com a documentação da Open Graph API.
 * Inclui seu ID como administrador dos Plugins Sociais como o de Comentários.
@@ -95,12 +91,38 @@ After downloading the ZIP file:
 * Uma página com poucas configurações. Queremos que seja tudo simples! Automático.
 
 = 1.1 =
+
 * Criado o readme.txt
 * Inserido no reposítório oficial Wordpress
 * Retiramos o arquivo og-admin.php que processava a área de administração e incluímos seu conteúdo no arquivo principal og-tags.php
 
 = 1.1.2 =
+
 * Otimizada a consulta ao banco de dados das opções do plugin.
 
+= 1.1.3 =
+
+* Otimizados os arquivos do plugin.
+* Melhorada a segurança.
+* Integração com o upload do Wordpress para a imagem padrão.
+
+= 1.1.4 =
+
+* Integração com o upload do Wordpress para a imagem padrão.
+* (FIX) Bug na apresentação do título em sites com plugins e temas que alteram o wp_title.* Criada uma opção de compatibilidade com plugins e temas que utilizam filtros no wp_title.
+
+## Prévia:
+
+= 1.2 =
+
+* Previsão da apresentação do conteúdo na página de edição do post.
+
+= 1.3 =
+
+* Edição do título, descrição e foto para páginas estáticas individualmente.
+
+Sugestões e pedidos? Use o fórum -> http://wordpress.org/support/plugin/og-tags
+
 == Screenshots ==
+
 1.  OG Tags - Área de Administração
