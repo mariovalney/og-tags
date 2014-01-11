@@ -130,11 +130,11 @@ Sugestões e pedidos? Use o fórum -> http://wordpress.org/support/plugin/og-tag
 
 ## Credits
 
-Contributors: @mariovalney
-URL: http://projetos.jangal.com.br/ogtags
-Tags: open graph, facebook, social, tags, Social Plugins
-Requires at least: 3.5
-Tested up to: 3.5
-Stable tag: 1.1.4
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+* Contributors: @mariovalney
+* URL: http://projetos.jangal.com.br/ogtags
+* Tags: open graph, facebook, social, tags, Social Plugins
+* Requires at least: 3.5
+* Tested up to: 3.5
+* Stable tag: 1.1.4
+* License: GPLv2 or later
+* License URI: http://www.gnu.org/licenses/gpl-2.0.html
