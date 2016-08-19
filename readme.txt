@@ -112,7 +112,8 @@ After downloading the ZIP file:
 
 * Refatoração do código para os padrões do WordPress
 * Pronto para tradução (pt_BR)
-* Melhoria da imagem padrão
+* Nova imagem padrão
+* Imagem padrão é "traduzível" agora
 
 Sugestões e pedidos? Use o fórum -> http://wordpress.org/support/plugin/og-tags
 

@@ -235,11 +235,21 @@ if ( ! class_exists( 'OG_Tags' ) ) {
 		 */
 		public function plugin_install() {
 
+			$locale = get_locale();
+
+			if ( file_exists( plugin_dir_path( __FILE__ ) . 'images/facebook-' . $locale . '.jpg' ) ) {
+				$default_image = plugins_url( 'images/facebook-' . $locale . '.jpg', __FILE__ );
+			} else if ( file_exists( plugin_dir_path( __FILE__ ) . 'images/facebook-' . substr( $locale, 0, 2 ) . '.jpg' ) ) {
+				$default_image = plugins_url( 'images/facebook-' . substr( $locale, 0, 2 ) . '.jpg', __FILE__ );
+			} else {
+				$default_image = plugins_url( 'images/facebook.jpg', __FILE__ );
+			}
+
 			// Adding Options
 			$ogtags_options = array(
 				'ogtags_fbadmins'			=> '',
 				'ogtags_publisher'			=> 'https://www.facebook.com/facebook',
-				'ogtags_image_default'		=> plugins_url( 'facebook.jpg', __FILE__ ),
+				'ogtags_image_default'		=> $default_image,
 				'ogtags_nomedoblog' 		=> get_bloginfo( 'name' ),
 				'ogtags_descricaodoblog'	=> get_bloginfo( 'description' ),
 				'ogtags_debug_filter' 		=> '0',
