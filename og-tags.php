@@ -1,150 +1,315 @@
 <?php
-/*
-Plugin Name: OG Tags
-Plugin URI: http://projetos.jangal.com.br/ogtags/
-Description: Um plugin para otimização das Open Graph Tags em sites Wordpress.
-Version: 1.1.4
-Author: Mário Valney
-Author URI: http://mariovalney.jangal.com.br
 
- *      Copyright 2013 Mário Valney <mariovalney@gmail.com>
+/**
  *
- *      This program is free software; you can redistribute it and/or modify
- *      it under the terms of the GNU General Public License as published by
- *      the Free Software Foundation; either version 3 of the License, or
- *      (at your option) any later version.
+ * @package           OG_Tags
+ * @since             2.0.0
  *
- *      This program is distributed in the hope that it will be useful,
- *      but WITHOUT ANY WARRANTY; without even the implied warranty of
- *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *      GNU General Public License for more details.
+ * Plugin Name:       OG Tags
+ * Plugin URI:        http://projetos.mariovalney.com/og-tags
+ * Description:       A plugin for optimization of Open Graph Tags for Wordpress sites.
+ * Version:           2.0.0
+ * Author:            Mário Valney
+ * Author URI:        http://mariovalney.com
+ * License:           GPL-2.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain:       og-tags
+ * Domain Path:       /languages
  *
- *      You should have received a copy of the GNU General Public License
- *      along with this program; if not, write to the Free Software
- *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
- *      MA 02110-1301, USA.
  */
 
-// EVITAR ACESSO DIRETO
-	if ( ! defined( 'WPINC' ) ) {
-		echo '<h1>You Shall Not Pass!</h1>';
-		die;
-	}
+// If this file is called directly, abort.
+defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
-// INSTALL
-	register_activation_hook( __FILE__, 'ogtags_install' );
+if ( ! class_exists( 'OG_Tags' ) ) {
 
-	function ogtags_install() {
-		require_once ('og-tags-install.php');
-	}
+	class OG_Tags {
 
-// UNINSTALL
-	register_deactivation_hook( __FILE__, 'ogtags_uninstall' );
+		/**
+		 * The unique internal identifier of this plugin to avoid overwritten class. 
+		 * Discussed with @gugaalves and @leobaiano in WordCamp Fortaleza 2016...
+		 *
+		 * @since    2.0.0
+		 * @access   public
+		 * @var      string    $class_tag	The string used to uniquely identify this class.
+		 */
+		public $class_tag;
 
-	function ogtags_uninstall() {
-		require_once ('og-tags-uninstall.php');
-	}
+		/**
+		 * The unique identifier of this plugin.
+		 *
+		 * @since    2.0.0
+		 * @access   protected
+		 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
+		 */
+		protected $plugin_name;
 
-// ADMINISTRATION
-	add_action( 'admin_menu', 'ogtags_administration' );
-	add_action( 'admin_head', 'ogtags_administration_style');
-	add_action(	'admin_enqueue_scripts', 'ogtags_administration_scripts');
- 
-	function ogtags_administration() {
-		add_options_page( 'OG Tags', 'OG Tags', 'manage_options', 'og-tags-options', 'ogtags_administration_content' );
-	}
+		/**
+		 * The current version of the plugin.
+		 *
+		 * @since    2.0.0
+		 * @access   protected
+		 * @var      string    $version    The current version of the plugin.
+		 */
+		protected $version;
 
-	function ogtags_administration_style() {
-		echo '<link rel="stylesheet" type="text/css" href="'.plugins_url( 'og-tags.css', __FILE__ ).'" />';
-	}
+		/**
+		 * The array of actions registered with WordPress.
+		 *
+		 * @since    2.0.0
+		 * @access   protected
+		 * @var      array    $actions    The actions registered with WordPress to fire when the plugin loads.
+		 */
+		protected $actions;
 
-	function ogtags_administration_scripts() {
-	    if (isset($_GET['page']) && $_GET['page'] == 'og-tags-options') {
-	        wp_enqueue_media();
-	        wp_register_script('og-tags-js', WP_PLUGIN_URL.'/og-tags/og-tags.js', array('jquery'));
-	        wp_enqueue_script('og-tags-js');
-	    }
-	}
+		/**
+		 * The array of filters registered with WordPress.
+		 *
+		 * @since    2.0.0
+		 * @access   protected
+		 * @var      array    $filters    The filters registered with WordPress to fire when the plugin loads.
+		 */
+		protected $filters;
 
-	function ogtags_administration_content() {
-		require_once ('og-tags-options.php');
-	}
+		/**
+		 * The array of modules of plugin.
+		 *
+		 * @since    2.0.0
+		 * @access   protected
+		 * @var      array    $modules    The modules to be used in this plugin.
+		 */
+		protected $modules;
 
-// ADDING ACTION IN HOOK
-	add_action( 'wp_head', 'ogtags_insert_tags' );
+		/**
+		 * Define the core functionality of the plugin.
+		 *
+		 * @since    2.0.0
+		 */
+		public function __construct() {
 
-// INSERT OG TAGS ON HEAD - FAZENDO A MÁGICA ACONTECER
-function ogtags_insert_tags() {
+			$this->plugin_name = OG_TAGS_TEXTDOMAIN;
+			$this->version = OG_TAGS_VERSION;
+			$this->class_tag = OG_TAGS_TAG;
 
-	// RECEBENDO O VALOR DAS OPÇÕES
-	$ogtags_options = get_option( 'ogtags_options' );
-	
-	$ognomedoblog = $ogtags_options['ogtags_nomedoblog'];
-	$ogdescricaodoblog = $ogtags_options['ogtags_descricaodoblog'];
-	$ogimagedefault = $ogtags_options['ogtags_image_default'];
-	$fbadmins = $ogtags_options['ogtags_fbadmins'];
-	$articlepublisher = $ogtags_options['ogtags_publisher'];
-	$ogdebugfilter = $ogtags_options['ogtags_debug_filter'];
+			$this->actions = $this->filters = $this->modules = array();
 
-	// DEMAIS VARIÁVEIS DEFAULT
-	$ogurldoblog = get_bloginfo('url');
+			$this->define_hooks();
+			$this->add_modules();
 
-	// TAGS FOR ENTIRE SITE
-	echo '<meta property="og:site_name"   content="'.$ognomedoblog.'" />';
-
-	$fbadmins = explode(" ",$fbadmins);
-	foreach ($fbadmins as $adminId) {
-		echo '<meta property="fb:admins"   content="'.$adminId.'" />';	
-	}
-
-	// TAG FOR HOME
-	if (is_single()) {
-		if ($ogdebugfilter) {
-			$ogtitle = wp_title('',false);
-		} else {
-			$ogtitle = wp_title('|',false,'right')." ".$ognomedoblog;
 		}
-		$ogdescription = get_the_excerpt(); 
-		$ogurl = get_permalink(); 
-		if (has_post_thumbnail()) { 
-			$ogimage = get_post_thumbnail_id();
-			$ogimage = wp_get_attachment_image_src($ogimage,'full',true);
-			$ogimage = $ogimage[0];
-		} else {
-			$ogimage = $ogimagedefault; 
-		}
-		$articleauthor = get_the_author();
-		$articlesection = get_the_category(); 
-		$articlesection = $articlesection[0]->cat_name;
-		$tags = wp_get_post_tags(get_the_ID());
-		foreach ( $tags as $tag ) {
-			$articletag = $tag->name;
-			echo '<meta property="article:tag" content="'.$articletag.'" />'; 
-		}
-		
-		echo '<meta property="og:title" content="'.$ogtitle.'" />';
-		echo '<meta property="og:description" content="'.$ogdescription.'" />';
-		echo '<meta property="og:url" content="'.$ogurl.'" />';
-		echo '<meta property="og:type" content="article" />';
-		echo '<meta property="og:image" content="'.$ogimage.'" />';
-		echo '<meta property="article:section" content="'.$articlesection.'" />';
-		echo '<meta property="article:publisher" content="'.$articlepublisher.'" />';
-	} else {
 
-		if ($ogdebugfilter) {
-			$ogtitle = wp_title('',false);
-		} else {
-			$ogtitle = wp_title('|',false,'right')." ".$ognomedoblog;
+		/**
+		 * The name of the plugin.
+		 *
+		 * @since     2.0.0
+		 * @return    string    The name of the plugin.
+		 */
+		public function get_plugin_name() {
+
+			return $this->plugin_name;
+
 		}
-		
-		$ogurl = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-		
-		echo '<meta property="og:title"  content="'.$ogtitle.'" />';
-		echo '<meta property="og:description"  content="'.$ogdescricaodoblog.'" /> ';
-		echo '<meta property="og:url"    content="'.$ogurl.'" />';
-		echo '<meta property="og:type"   content="website" /> ';
-		echo '<meta property="og:image"  content="'.$ogimagedefault.'" />';
+
+		/**
+		 * The version number of the plugin.
+		 *
+		 * @since     2.0.0
+		 * @return    string    The version number of the plugin.
+		 */
+		public function get_version() {
+
+			return $this->version;
+
+		}
+
+		/**
+		 * Register the hooks for Core
+		 *
+		 * @since    2.0.0
+		 * @access   private
+		 */
+		private function define_hooks() {
+
+			// Activation
+			register_activation_hook( __FILE__, array( $this, 'plugin_install' ) );
+
+			//Deactivation
+			register_deactivation_hook( __FILE__, array( $this, 'plugin_uninstall' ) );
+
+			// Internationalization
+			$this->add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
+
+		}
+
+		/**
+		 * Load all the plugins modules.
+		 *
+		 * @since    2.0.0
+		 * @access   private
+		 */
+		private function add_modules() {
+
+			require_once plugin_dir_path( __FILE__ ) . 'modules/front/class-og-tags-front.php';
+			require_once plugin_dir_path( __FILE__ ) . 'modules/dashboard/class-og-tags-dashboard.php';
+
+			$this->modules['front'] = new OG_Tags_Front( $this, OG_TAGS_TAG );
+			$this->modules['dashboard'] = new OG_Tags_Dashboard( $this, OG_TAGS_TAG );
+
+		}
+
+		/**
+		 * A utility function that is used to register the actions and hooks into a single
+		 * collection.
+		 *
+		 * @since    2.0.0
+		 * @access   private
+		 * @param    array		$hooks				The collection of hooks that is being registered (that is, actions or filters).
+		 * @param    string 	$hook 				The name of the WordPress filter that is being registered.
+		 * @param    string 	$callback 			The callback function or a array( $obj, 'method' ) to public method of a class.
+		 * @param    int		$priority 			The priority at which the function should be fired.
+		 * @param    int		$accepted_args 		The number of arguments that should be passed to the $callback.
+		 * @return   array 							The collection of actions and filters registered with WordPress.
+		 */
+		private function add_hook( $hooks, $hook, $callback, $priority, $accepted_args ) {
+
+			$hooks[] = array(
+				'hook'          => $hook,
+				'callback'      => $callback,
+				'priority'      => $priority,
+				'accepted_args' => $accepted_args
+			);
+
+			return $hooks;
+
+		}
+
+		/**
+		 * Add a new action to the collection to be registered with WordPress.
+		 *
+		 * @since    2.0.0
+		 * @param    string		$hook             The name of the WordPress action that is being registered.
+		 * @param    string		$callback         The callback function or a array( $obj, 'method' ) to public method of a class.
+		 * @param    int		$priority         Optional. he priority at which the function should be fired. Default is 10.
+		 * @param    int		$accepted_args    Optional. The number of arguments that should be passed to the $callback. Default is 1.
+		 */
+		public function add_action( $hook, $callback, $priority = 10, $accepted_args = 1 ) {
+
+			$this->actions = $this->add_hook( $this->actions, $hook, $callback, $priority, $accepted_args );
+
+		}
+
+		/**
+		 * Add a new filter to the collection to be registered with WordPress.
+		 *
+		 * @since    2.0.0
+		 * @param    string		$hook             The name of the WordPress filter that is being registered.
+		 * @param    string		$callback         The callback function or a array( $obj, 'method' ) to public method of a class.
+		 * @param    int		$priority         Optional. he priority at which the function should be fired. Default is 10.
+		 * @param    int		$accepted_args    Optional. The number of arguments that should be passed to the $callback. Default is 1
+		 */
+		public function add_filter( $hook, $callback, $priority = 10, $accepted_args = 1 ) {
+
+			$this->filters = $this->add_hook( $this->filters, $hook, $callback, $priority, $accepted_args );
+
+		}
+
+		/**
+		 * Define the locale for this plugin for internationalization.
+		 *
+		 *
+		 * @since    2.0.0
+		 * @access   private
+		 */
+		public function load_plugin_textdomain() {
+
+			load_plugin_textdomain( OG_TAGS_TEXTDOMAIN, false, basename( dirname( __FILE__ ) ) . '/languages/' );
+
+		}
+
+		/**
+		 * Run tasks on Install
+		 *
+		 *
+		 * @since    2.0.0
+		 * @access   private
+		 */
+		public function plugin_install() {
+
+			// Adding Options
+			$ogtags_options = array(
+				'ogtags_fbadmins'			=> '',
+				'ogtags_publisher'			=> 'https://www.facebook.com/facebook',
+				'ogtags_image_default'		=> plugins_url( 'facebook.jpg', __FILE__ ),
+				'ogtags_nomedoblog' 		=> get_bloginfo( 'name' ),
+				'ogtags_descricaodoblog'	=> get_bloginfo( 'description' ),
+				'ogtags_debug_filter' 		=> '0',
+			);
+
+			add_option( 'ogtags_options', $ogtags_options );
+
+		}
+
+		/**
+		 * Run tasks on Uninstall
+		 *
+		 *
+		 * @since    2.0.0
+		 * @access   private
+		 */
+		public function plugin_uninstall() {
+
+			delete_option( 'ogtags_options' );
+
+		}
+
+		/**
+		 * Run the plugin.
+		 *
+		 * @since    2.0.0
+		 */
+		public function run() {
+
+			define( 'OG_TAGS_LOADED', '1' );
+
+			// Running Modules (first of all)
+			foreach ( $this->modules as $module ) {
+				$module->run();
+			}
+
+			// Running Filters
+			foreach ( $this->filters as $hook ) {
+				add_filter( $hook['hook'], $hook['callback'], $hook['priority'], $hook['accepted_args'] );
+			}
+
+			// Running Actions
+			foreach ( $this->actions as $hook ) {
+				add_action( $hook['hook'], $hook['callback'], $hook['priority'], $hook['accepted_args'] );
+			}
+
+		}
+
 	}
 }
 
-?>
+/**
+ * Making things happening
+ *
+ * @since    2.0.0
+ */
+function og_tags_start() {
+
+	define( 'OG_TAGS_VERSION', '2.0.0' );
+	define( 'OG_TAGS_TEXTDOMAIN', 'og-tags' );
+	define( 'OG_TAGS_TAG', 'og_tags_core' );
+
+	$plugin = new OG_Tags();
+
+	if ( OG_TAGS_TAG == $plugin->class_tag ) {
+		$plugin->run();
+	} else {
+		trigger_error( __( 'The OG_Tags was overwritten...' ), E_USER_WARNING );
+	}
+
+}
+
+og_tags_start();

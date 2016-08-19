@@ -1,0 +1,101 @@
+.ogtags {
+	padding: 15px 15px 0 0;
+}
+
+.ogtags .row {
+	margin-bottom: 20px;
+	display: block;
+}
+
+.ogtags .row:after,
+.ogtags .row:before {
+	content:"";
+	display: block;
+	clear: both;
+	float: none;
+}
+
+.ogtags h2 {
+	margin: 0 auto 20px;
+	display: block;
+	font-size: 1.4rem;
+}
+
+.ogtags h3 {
+	margin: 0 auto 20px;
+	font-size: 1.0rem;
+}
+
+.ogtags form {
+	display: block;
+	margin: 30px  0;
+}
+
+.ogtags form .row {
+	margin: 30px 0;
+}
+
+.ogtags form .input-row {
+	margin: 0 0 10px;
+}
+
+.ogtags form .input-row:last-child {
+	margin-bottom: 0;
+}
+
+.ogtags label {
+	width: 30%;
+	min-width: 190px;
+	display: inline-block;
+	padding: 8px 10px;
+	vertical-align: middle;
+}
+
+.ogtags input[type='text'] {
+	width: 65%;
+	vertical-align: middle;
+	padding: 5px 10px;
+}
+
+.ogtags input[type='checkbox'] {
+	top: 3px;
+	position: relative;
+}
+
+.ogtags input.imagem {
+	width: 45%;
+}
+
+.ogtags #ogtags-upload-btn {
+	vertical-align: middle;
+	height: 31px;
+	width: 19%;
+}
+
+.ogtags-descricao {
+	font-style: italic;
+	font-size: 12px;
+	color: #777;
+	display: inline-block;
+	top: 2px;
+	position: relative;
+}
+
+.ogtags-content {
+	display: inline-block;
+	width: 75%;
+}
+
+.ogtags-sidebar {
+	display: inline-block;
+    background: #FFFFFF;
+    padding: 15px 15px 0 15px;
+    text-align: center;
+    width: 20%;
+    margin: 0;
+    float: right;
+}
+
+.ogtags-sidebar h2 {
+	margin: 0 0 20px 0;
+}

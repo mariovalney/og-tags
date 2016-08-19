@@ -4,7 +4,7 @@ Donate link: http://projetos.jangal.com.br/ogtags
 Tags: open graph, facebook, social, tags, Social Plugins
 Requires at least: 3.5
 Tested up to: 3.5
-Stable tag: trunk
+Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,20 @@ OG Tags includes the tags necessary to integrate your website to Facebook with a
 
 == Description ==
 
-###[OG Tags](http://projetos.jangal.com.br/ogtags)
+Features of "OG Tags":
+
+* Include type of object to Open Graph API ("website" for home and "article" for posts).
+* Include the tags with properties in the page according with Open Graph API documentation.
+* Include your ID as administrator for Social Plugins like Comments.
+* Include your Page as publisher for Open Graph's object.
+* Include a default image to Home and posts without Featured Image.
+* Use Featured Image how og:image (i.e. it will appear on Facebook' Feed).
+* Simple page with less configurations. We want to be simple! Automatic.
+
+Language:
+
+Open Graph does not make difference about languages, but the Documentation and the Options Page are in Brazilian Portuguese.
+______________
 
 O que "OG Tags" faz:
 
@@ -27,23 +40,6 @@ O que "OG Tags" faz:
 Idioma:
 
 A Open Graph API não faz diferença quanto idiomas, mas a Documentação e a Página de Opções estão em português brasileiro.
-
-______________
-
-###[OG Tags](http://projetos.jangal.com.br/ogtags)
-
-Features of "OG Tags":
-
-* Include type of object to Open Graph API ("website" for home and "article" for posts).
-* Include the tags with properties in the page according with Open Graph API documentation.
-* Include your ID as administrator for Social Plugins like Comments.
-* Include your Page as publisher for Open Graph's object.
-* Include a default image to Home and posts without Featured Image.
-* Use Featured Image how og:image (i.e. it will appear on Facebook' Feed).
-* Simple page with less configurations. We want to be simple! Automatic.
-
-Language:
-Open Graph does not make difference about languages, but the Documentation and the Options Page are in Brazilian Portuguese.
 
 == Installation ==
 
@@ -61,7 +57,7 @@ Não se preocupe, isso será automático na ativação do plugin e quando você 
 
 ### Configurações
 
-O plugin reconhece o nome e descrição do seu site, que você já configurou, quando estava instalando o Wordpress! Mas, se por algum motivo ou estratégia de divulgação, você quiser alterar esse conteúdo, o plugin deixa livre para você escolher um nome e uma descrição próprios para serem incluidos nas OG Tags e consequentemente serem vistos no Facebook. 
+O plugin reconhece o nome e descrição do seu site, que você já configurou, quando estava instalando o WordPress! Mas, se por algum motivo ou estratégia de divulgação, você quiser alterar esse conteúdo, o plugin deixa livre para você escolher um nome e uma descrição próprios para serem incluidos nas OG Tags e consequentemente serem vistos no Facebook. 
 Para isso, basta preencher os campos acima, na seção "Dados do Site".
 Na seção Imagem Padrão, você pode incluir a URL de uma imagem a ser usada tanto para a Home do seu site, quanto nos casos em que o artigo não tem uma Imagem Destacada.
 A Open Graph também permite relacionarmos os artigos à uma página do Facebook e é o link dessa página que devemos inserir na seção "Dados dos Autores", além do ID do perfil dos administradores do blog, para que seja possível a moderação e administração dos plugins sociais do Facebook, caso você use algum, por exemplo o sistema de comentários. 
@@ -93,7 +89,7 @@ After downloading the ZIP file:
 = 1.1 =
 
 * Criado o readme.txt
-* Inserido no reposítório oficial Wordpress
+* Inserido no reposítório oficial WordPress
 * Retiramos o arquivo og-admin.php que processava a área de administração e incluímos seu conteúdo no arquivo principal og-tags.php
 
 = 1.1.2 =
@@ -104,25 +100,22 @@ After downloading the ZIP file:
 
 * Otimizados os arquivos do plugin.
 * Melhorada a segurança.
-* Integração com o upload do Wordpress para a imagem padrão.
+* Integração com o upload do WordPress para a imagem padrão.
 
 = 1.1.4 =
 
-* Integração com o upload do Wordpress para a imagem padrão.
-* (FIX) Bug na apresentação do título em sites com plugins e temas que alteram o wp_title.* Criada uma opção de compatibilidade com plugins e temas que utilizam filtros no wp_title.
+* Integração com o upload do WordPress para a imagem padrão.
+* (FIX) Bug na apresentação do título em sites com plugins e temas que alteram o wp_title.
+* Criada uma opção de compatibilidade com plugins e temas que utilizam filtros no wp_title.
 
-## Prévia:
+= 2.0.0 =
 
-= 1.2 =
-
-* Previsão da apresentação do conteúdo na página de edição do post.
-
-= 1.3 =
-
-* Edição do título, descrição e foto para páginas estáticas individualmente.
+* Refatoração do código para os padrões do WordPress
+* Pronto para tradução (pt_BR)
+* Melhoria da imagem padrão
 
 Sugestões e pedidos? Use o fórum -> http://wordpress.org/support/plugin/og-tags
 
 == Screenshots ==
 
-1.  OG Tags - Área de Administração
+1.  OG Tags - Dashboard

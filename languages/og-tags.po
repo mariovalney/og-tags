@@ -1,0 +1,211 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cf7-html-email-template-extension\n"
+"POT-Creation-Date: 2016-08-18 23:51-0300\n"
+"PO-Revision-Date: 2016-08-18 23:51-0300\n"
+"Last-Translator: Mário Valney <mariovalney@gmail.com>\n"
+"Language-Team: Mário Valney <mariovalney@gmail.com>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-KeywordsList: __;_e;_x;_ex;esc_attr_e\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: og-tags.php:310
+msgid "The OG_Tags was overwritten..."
+msgstr ""
+
+#: modules/dashboard/class-og-tags-dashboard.php:76
+#: modules/dashboard/class-og-tags-dashboard.php:94
+msgid "Core was not passed in \"OG_Tags_Dashboard\"."
+msgstr ""
+
+#: modules/dashboard/class-og-tags-dashboard.php:107
+msgid "OG Tags"
+msgstr ""
+
+#: modules/dashboard/class-og-tags-dashboard.php:126
+#: modules/dashboard/admin/dashboard.php:63
+msgid "Escolha a Imagem"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:35
+msgid "Área de Administração"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:39
+msgid "Dados do Site"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:44
+msgid "Nome do site:"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:51
+msgid "Descrição do site:"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:58
+msgid "Imagem Padrão"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:61
+msgid "URL da imagem"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:61
+msgid "(deve ter pelo menos 200x200)"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:67
+msgid "Dados dos Autores"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:70
+msgid "Link da Página no Facebook"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:72
+msgid "ID dos Administradores (separados com um espaço)"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:76
+#: modules/dashboard/admin/dashboard.php:116
+msgid "Compatibilidade"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:78
+#: modules/dashboard/admin/dashboard.php:117
+msgid "Desativar título personalizado"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:79
+msgid "Padrão: desmarcado"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:83
+msgid "Salvar Alterações"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:90
+msgid "Siga no Twitter!"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:98
+msgid "Documentação"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:99
+msgid "é um plugin voltado para otimizar o seu site no Facebook!"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:102
+msgid "Configurações"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:103
+msgid "O plugin reconhece o"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:103
+#: modules/dashboard/admin/dashboard.php:104
+msgid "nome e descrição"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:103
+msgid ""
+"do seu site, que você já configurou, quando estava instalando o Wordpress!"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:104
+msgid ""
+"Mas, se por algum motivo ou estratégia de divulgação, você quiser alterar "
+"esse conteúdo, o plugin deixa livre para você escolher um"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:104
+msgid ""
+"próprios para serem incluidos nas OG Tags e consequentemente serem vistos no "
+"Facebook."
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:105
+msgid "Para isso, basta preencher os campos acima, na seção \"Dados do Site\"."
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:106
+msgid ""
+"Na seção Imagem Padrão, você pode incluir a URL de uma imagem a ser usada "
+"tanto para a Home do seu site, quanto nos casos em que o artigo não tem uma "
+"Imagem Destacada."
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:107
+msgid ""
+"A Open Graph também permite relacionarmos os artigos à uma página do "
+"Facebook e é o link dessa página que devemos inserir na seção \"Dados dos "
+"Autores\", além do"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:107
+msgid "ID do perfil dos administradores"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:107
+msgid ""
+"do blog, para que seja possível a moderação e administração dos plugins "
+"sociais do Facebook, caso você use algum, por exemplo o"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:107
+msgid "sistema de comentários"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:111
+msgid "Utilidade"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:112
+msgid ""
+"Uma página com essas tags bem estruturadas, gera uma história interessante a "
+"cada vez que é curtida/publicada. É como se cada um que curtisse divulgasse "
+"tão bem quanto o próprio autor, que escolhe uma imagem chamativa, bem como "
+"uma descrição e título atraentes e que têm a ver com a página em si."
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:117
+msgid ""
+"Alguns temas ou plugins podem alterar a forma que o WordPress lê o título de "
+"suas páginas. Você deve marcar essa opção caso isso gere algum problema na "
+"forma como o Facebook lê o título das suas páginas. O padrão é desmarcado."
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:121
+msgid "Para saber mais sobre a API Open Graph"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:121
+msgid "visite nosso site"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:122
+msgid "Dúvidas? Sugestões? Envie um e-mail para"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:122
+msgid "ou faça um"
+msgstr ""
+
+#: modules/dashboard/admin/dashboard.php:122
+msgid "Fork no GitHub"
+msgstr ""
+
+#: modules/front/class-og-tags-front.php:84
+#: modules/front/class-og-tags-front.php:102
+msgid "Core was not passed in \"OG_Tags_Front\"."
+msgstr ""
