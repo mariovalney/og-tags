@@ -8,7 +8,7 @@
  * Plugin Name:       OG Tags
  * Plugin URI:        http://projetos.mariovalney.com/og-tags
  * Description:       A plugin for optimization of Open Graph Tags for Wordpress sites.
- * Version:           2.0.0
+ * Version:           2.0.1
  * Author:            Mário Valney
  * Author URI:        http://mariovalney.com
  * License:           GPL-2.0+
@@ -139,6 +139,9 @@ if ( ! class_exists( 'OG_Tags' ) ) {
 			// Internationalization
 			$this->add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
 
+			// Plugins Action Link
+			$this->add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), array( $this, 'add_action_links' ) );
+
 		}
 
 		/**
@@ -218,11 +221,28 @@ if ( ! class_exists( 'OG_Tags' ) ) {
 		 *
 		 *
 		 * @since    2.0.0
-		 * @access   private
+		 * @access   public
 		 */
 		public function load_plugin_textdomain() {
 
 			load_plugin_textdomain( OG_TAGS_TEXTDOMAIN, false, basename( dirname( __FILE__ ) ) . '/languages/' );
+
+		}
+
+		/**
+		 * Add "Settings" link in Plugins dashboard
+		 *
+		 *
+		 * @since    2.0.0
+		 * @access   public
+		 * @param    array		$links     Links (HTML)
+		 */
+		public function add_action_links( $links ) {
+
+			$ogtags_links = array(
+				'<a href="' . admin_url( 'options-general.php?page=og-tags-options' ) . '">' . __( "Settings" ) . '</a>',
+			);
+			return array_merge( $ogtags_links, $links );
 
 		}
 
@@ -308,7 +328,7 @@ if ( ! class_exists( 'OG_Tags' ) ) {
  */
 function og_tags_start() {
 
-	define( 'OG_TAGS_VERSION', '2.0.0' );
+	define( 'OG_TAGS_VERSION', '2.0.1' );
 	define( 'OG_TAGS_TEXTDOMAIN', 'og-tags' );
 	define( 'OG_TAGS_TAG', 'og_tags_core' );
 

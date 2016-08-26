@@ -58,7 +58,7 @@ if ( isset( $_POST["ogtags_saving"] ) ) {
 					<?php _e( 'Imagem Padrão', OG_TAGS_TEXTDOMAIN ) ?>
 				</h3>
 				<div class="row">
-					<label><?php _e( 'URL da imagem', OG_TAGS_TEXTDOMAIN ) ?><br><?php _e( '(deve ter pelo menos 200x200)', OG_TAGS_TEXTDOMAIN ) ?>:</label>
+					<label><?php _e( 'URL da imagem', OG_TAGS_TEXTDOMAIN ) ?><br><?php _e( '(recomenda-se 1200 x 630)', OG_TAGS_TEXTDOMAIN ) ?>:</label>
 					<input required id="upload_image_url" class="imagem" type="text" name="ogtags_update_image_default" value="<?php echo $ogtags_options['ogtags_image_default']; ?>" form="ogtagssettings">
 					<input id="ogtags-upload-btn" class="button" type="button" value="<?php _e( 'Escolha a Imagem', OG_TAGS_TEXTDOMAIN ) ?>"  form="ogtagssettings">
 				</div>
@@ -68,9 +68,9 @@ if ( isset( $_POST["ogtags_saving"] ) ) {
 				</h3>
 				<div class="row">
 					<label><?php _e( 'Link da Página no Facebook', OG_TAGS_TEXTDOMAIN ) ?>: </label>
-					<input required class="pagina" type="text" name="ogtags_update_publisher" value="<?php echo $ogtags_options['ogtags_publisher']; ?>" form="ogtagssettings">
-					<label><?php _e( 'ID dos Administradores (separados com um espaço)', OG_TAGS_TEXTDOMAIN ) ?>: </label>
-					<input required class="admins" type="text" name="ogtags_update_fbdmins" value="<?php echo $ogtags_options['ogtags_fbadmins']; ?>" form="ogtagssettings">
+					<input class="pagina" type="text" name="ogtags_update_publisher" value="<?php echo $ogtags_options['ogtags_publisher']; ?>" form="ogtagssettings">
+					<label><?php _e( 'ID dos Administradores', OG_TAGS_TEXTDOMAIN ) ?><br><?php _e( '(separados com um espaço)', OG_TAGS_TEXTDOMAIN ) ?>: </label>
+					<input class="admins" type="text" name="ogtags_update_fbdmins" value="<?php echo $ogtags_options['ogtags_fbadmins']; ?>" form="ogtagssettings">
 				</div>
 				
 				<h3><?php _e( 'Compatibilidade', OG_TAGS_TEXTDOMAIN ) ?></h3>
@@ -91,6 +91,22 @@ if ( isset( $_POST["ogtags_saving"] ) ) {
 				<a href="https://twitter.com/mariovalney" class="twitter-follow-button" data-show-count="false" data-lang="pt" data-size="large">Siga no Twitter!</a>
 				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 			</div>
+			<hr style="margin: 20px 0">
+			<?php
+				$cf7_slug = "contact-form-7/wp-contact-form-7.php";
+				$chete_slug = "cf7-html-email-template-extension/cf7-html-email-template-extension.php";
+
+				if ( file_exists( WP_PLUGIN_DIR . "/" . $cf7_slug ) && is_plugin_active( $cf7_slug ) ) {
+					echo "<h2>" . __( 'Usando o Contact Form 7?', OG_TAGS_TEXTDOMAIN ) . "</h2>";
+					if ( ! file_exists( WP_PLUGIN_DIR . "/" . $chete_slug ) ) {
+						echo '<p>' . __( "Recomentamos instalar o plugin", OG_TAGS_TEXTDOMAIN ) . '<br><a href="https://wordpress.org/plugins/cf7-html-email-template-extension/" target="_blank">CF7 - HTML Email Template Extension</a><br>' . __( "e deixar seus e-mails mais profissionais?", OG_TAGS_TEXTDOMAIN ) . '</p>';
+					} else if ( ! is_plugin_active( $chete_slug ) ) {
+						echo '<p>' . __( "O que acha de ativar o plugin", OG_TAGS_TEXTDOMAIN ) . '<br><a href="' . admin_url( "plugins.php#the-list" ) . '" target="_blank">CF7 - HTML Email Template Extension</a><br>' . __( "e deixar seus e-mails mais profissionais?", OG_TAGS_TEXTDOMAIN ) . '</p>';
+					} else {
+						echo '<p>' . __( "Obrigado por usar também o plugin", OG_TAGS_TEXTDOMAIN ) . '<br><strong>CF7 - HTML Email Template Extension</strong></p>';
+					}
+				}
+			?>
 		</aside>
 	</div>
 	

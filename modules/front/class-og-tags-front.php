@@ -187,13 +187,13 @@ if ( ! class_exists( 'OG_Tags_Front' ) ) {
 				echo '<meta property="article:tag" content="' . $articletag . '">' . "\n"; 
 			}
 
-			echo '<meta property="og:title" content="' . $ogtitle . '">' . "\n";
-			echo '<meta property="og:description" content="' . $ogdescription . '">' . "\n";
-			echo '<meta property="og:url" content="' . $ogurl . '">' . "\n";
+			echo '<meta property="og:title" content="' . esc_attr( $ogtitle ) . '">' . "\n";
+			echo '<meta property="og:description" content="' . esc_attr( $ogdescription ) . '">' . "\n";
+			echo '<meta property="og:url" content="' . esc_attr( $ogurl ) . '">' . "\n";
 			echo '<meta property="og:type" content="article">' . "\n";
-			echo '<meta property="og:image" content="' . $ogimage . '">' . "\n";
-			echo '<meta property="article:section" content="' . $articlesection . '">' . "\n";
-			echo '<meta property="article:publisher" content="' . $options['ogtags_publisher'] . '">' . "\n";
+			echo '<meta property="og:image" content="' . esc_attr( $ogimage ) . '">' . "\n";
+			echo '<meta property="article:section" content="' . esc_attr( $articlesection ) . '">' . "\n";
+			echo '<meta property="article:publisher" content="' . esc_attr( $options['ogtags_publisher'] ) . '">' . "\n";
 
 		}
 
@@ -215,11 +215,11 @@ if ( ! class_exists( 'OG_Tags_Front' ) ) {
 
 			$ogurl = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
-			echo '<meta property="og:title" content="' . $ogtitle . '">' . "\n";
-			echo '<meta property="og:description" content="' . $options['ogtags_descricaodoblog'] . '">' . "\n";
-			echo '<meta property="og:url" content="' . $ogurl . '">' . "\n";
+			echo '<meta property="og:title" content="' . esc_attr( $ogtitle ) . '">' . "\n";
+			echo '<meta property="og:description" content="' . esc_attr( $options['ogtags_descricaodoblog'] ) . '">' . "\n";
+			echo '<meta property="og:url" content="' . esc_attr( $ogurl ) . '">' . "\n";
 			echo '<meta property="og:type" content="website"> ' . "\n";
-			echo '<meta property="og:image" content="' . $options['ogtags_image_default'] . '">' . "\n";
+			echo '<meta property="og:image" content="' . esc_attr( $options['ogtags_image_default'] ) . '">' . "\n";
 
 		}
 

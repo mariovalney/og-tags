@@ -3,8 +3,8 @@ Contributors: mariovalney
 Donate link: http://projetos.jangal.com.br/ogtags
 Tags: open graph, facebook, social, tags, Social Plugins
 Requires at least: 3.5
-Tested up to: 3.5
-Stable tag: 2.0
+Tested up to: 4.6
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,6 +25,7 @@ Features of "OG Tags":
 Language:
 
 Open Graph does not make difference about languages, but the Documentation and the Options Page are in Brazilian Portuguese.
+Please! Help translating to English.
 ______________
 
 O que "OG Tags" faz:
@@ -114,6 +115,12 @@ After downloading the ZIP file:
 * Pronto para tradução (pt_BR)
 * Nova imagem padrão
 * Imagem padrão é "traduzível" agora
+
+= 2.0.1 =
+
+* Correção da forma de impressão do conteúdo da og-tag
+* Incluído link de "Settings" na página de Plugins
+* Alteração na sidebar da administração
 
 Sugestões e pedidos? Use o fórum -> http://wordpress.org/support/plugin/og-tags
 
