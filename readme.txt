@@ -1,10 +1,10 @@
 ﻿=== OG Tags ===
 Contributors: mariovalney
-Donate link: http://projetos.jangal.com.br/ogtags
+Donate link: https://projetos.mariovalney.com/og-tags/
 Tags: open graph, facebook, social, tags, Social Plugins
 Requires at least: 3.5
-Tested up to: 4.6
-Stable tag: 2.0.1
+Tested up to: 4.9.2
+Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,103 +26,61 @@ Language:
 
 Open Graph does not make difference about languages, but the Documentation and the Options Page are in Brazilian Portuguese.
 Please! Help translating to English.
-______________
-
-O que "OG Tags" faz:
-
-* Inclui o tipo de objeto Open Graph ("website" para a página inicial e "article" para os posts e artigos).
-* Inclui as tag com propriedades nas página e acordo com a documentação da Open Graph API.
-* Inclui seu ID como administrador dos Plugins Sociais como o de Comentários.
-* Inclui sua Página no Facebook como "publisher" do site no Open Graph.
-* Inclui uma imagem padrão para a Home e para os artigos sem Imagem Destacada.
-* Usa a Imagem Destacada do post como og:image (ou seja, ela irá aparecer no Feed do Facebook).
-* Uma página com poucas configurações. Queremos que seja tudo simples! Automático.
-
-Idioma:
-
-A Open Graph API não faz diferença quanto idiomas, mas a Documentação e a Página de Opções estão em português brasileiro.
 
 == Installation ==
 
-Após o download do arquivo ZIP:
+After downloading the ZIP file:
 
-1. Faça o login no seu site e navegue até o menu "Plugins".
-2. Clique em "Adicionar Novo".
-3. Escolha a opção "Enviar".
-4. Clique em **Escolher Arquivo** e selecione o arquivo zip OG Tags.
-5. Clique em **Instalar Agora**.
-6. Feito isso, ative o plugin.
-
-O plugin irá guardar sus configurações no Banco de Dados. 
-Não se preocupe, isso será automático na ativação do plugin e quando você desativá-lo (esperamos que não faça isso) essas opções serão apagadas.
-
-### Configurações
-
-O plugin reconhece o nome e descrição do seu site, que você já configurou, quando estava instalando o WordPress! Mas, se por algum motivo ou estratégia de divulgação, você quiser alterar esse conteúdo, o plugin deixa livre para você escolher um nome e uma descrição próprios para serem incluidos nas OG Tags e consequentemente serem vistos no Facebook. 
-Para isso, basta preencher os campos acima, na seção "Dados do Site".
-Na seção Imagem Padrão, você pode incluir a URL de uma imagem a ser usada tanto para a Home do seu site, quanto nos casos em que o artigo não tem uma Imagem Destacada.
-A Open Graph também permite relacionarmos os artigos à uma página do Facebook e é o link dessa página que devemos inserir na seção "Dados dos Autores", além do ID do perfil dos administradores do blog, para que seja possível a moderação e administração dos plugins sociais do Facebook, caso você use algum, por exemplo o sistema de comentários. 
-Você deve separá-los por um espaço e a forma mais fácil de achar seu ID é digitando "http://graph.facebook.com/SEU-NOME-DE-USUÁRIO". Por exemplo: o ID do Mark Zuckerberg é 4.
-
-______________
-
-After downloading the ZIP file: 
-
-1.  Login to your WordPress site administrator panel and head over the 'Plugins' menu  
+1.  Login to your WordPress site administrator panel and head over the 'Plugins' menu
 2.  Click 'Add New'.
 3.  Choose the 'Upload' option.
-4.  Click **Choose file** and select the OG Tags zip file.  
-5.  Click **Install Now** button.  
+4.  Click **Choose file** and select the OG Tags zip file.
+5.  Click **Install Now** button.
 6.  Once it is complete, activate the plugin.
 
 == Changelog ==
 
-= 1.0 =
+= 2.0.1 =
 
-* Inclui o tipo de objeto Open Graph ("website" para a página inicial e "article" para os posts e artigos).
-* Inclui as tag com propriedades nas página e acordo com a documentação da Open Graph API.
-* Inclui seu ID como administrador dos Plugins Sociais como o de Comentários.
-* Inclui sua Página no Facebook como "publisher" do site no Open Graph.
-* Inclui uma imagem padrão para a Home e para os artigos sem Imagem Destacada.
-* Usa a Imagem Destacada do post como og:image (ou seja, ela irá aparecer no Feed do Facebook).
-* Uma página com poucas configurações. Queremos que seja tudo simples! Automático.
-
-= 1.1 =
-
-* Criado o readme.txt
-* Inserido no reposítório oficial WordPress
-* Retiramos o arquivo og-admin.php que processava a área de administração e incluímos seu conteúdo no arquivo principal og-tags.php
-
-= 1.1.2 =
-
-* Otimizada a consulta ao banco de dados das opções do plugin.
-
-= 1.1.3 =
-
-* Otimizados os arquivos do plugin.
-* Melhorada a segurança.
-* Integração com o upload do WordPress para a imagem padrão.
-
-= 1.1.4 =
-
-* Integração com o upload do WordPress para a imagem padrão.
-* (FIX) Bug na apresentação do título em sites com plugins e temas que alteram o wp_title.
-* Criada uma opção de compatibilidade com plugins e temas que utilizam filtros no wp_title.
+* Correcting the print form of og-tag content
+* Included "Settings" link in the Plugins page
+* Change in option page
 
 = 2.0.0 =
 
-* Refatoração do código para os padrões do WordPress
-* Pronto para tradução (pt_BR)
-* Nova imagem padrão
-* Imagem padrão é "traduzível" agora
+* Code refactoring for WordPress standards
+* Ready for translation (pt_BR)
+* New default image and it is "translatable" now
 
-= 2.0.1 =
+= 1.1.4 =
 
-* Correção da forma de impressão do conteúdo da og-tag
-* Incluído link de "Settings" na página de Plugins
-* Alteração na sidebar da administração
+* Created a compatibility option with plugins and themes that use filters in wp_title.
 
-Sugestões e pedidos? Use o fórum -> http://wordpress.org/support/plugin/og-tags
+= 1.1.3 =
+
+* Optimized plugin files.
+* Improved security.
+* Integration with WordPress upload to the default image.
+
+= 1.1.2 =
+
+* Optimized query to database of plugin options.
+
+= 1.1 =
+
+* Added to the official WordPress repository
+
+= 1.0 =
+
+* Add Open Graph object type ("website" for home page and "article" for posts and articles).
+* Add the tags with properties on the pages and according to the Open Graph API documentation.
+* Add your ID as an administrator of Social Plugins such as Comments.
+* Add your Facebook Page as a "publisher" of the site in the Open Graph.
+* Add a default image for Home and for articles with No Featured Image.
+* Use the Featured Image of the post as og:image (ie, it will appear in the Facebook Feed).
+* A page with few settings. We want everything to be simple! Automatic.
+
+Suggestions? -> http://wordpress.org/support/plugin/og-tags
 
 == Screenshots ==
 
