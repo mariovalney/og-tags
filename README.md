@@ -1,16 +1,16 @@
-=== OG Tags ===
-Contributors: mariovalney
-Donate link: https://projetos.mariovalney.com/og-tags/
-Tags: open graph, facebook, social, tags, Social Plugins
-Requires at least: 3.5
-Tested up to: 5.5
-Stable tag: trunk
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+# OG Tags #
+**Contributors:** mariovalney  
+**Donate link:** https://projetos.mariovalney.com/og-tags/  
+**Tags:** open graph, facebook, social, tags, Social Plugins  
+**Requires at least:** 3.5  
+**Tested up to:** 5.5  
+**Stable tag:** trunk  
+**License:** GPLv2 or later  
+**License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
 OG Tags includes the tags necessary to integrate your website to Facebook with almost no configuration. Automatic. Simple.
 
-== Description ==
+## Description ##
 
 Features of "OG Tags":
 
@@ -27,7 +27,7 @@ Language:
 Open Graph does not make difference about languages, but the Documentation and the Options Page are in Brazilian Portuguese.
 Please! Help translating to English.
 
-== Installation ==
+## Installation ##
 
 After downloading the ZIP file:
 
@@ -38,39 +38,39 @@ After downloading the ZIP file:
 5.  Click **Install Now** button.
 6.  Once it is complete, activate the plugin.
 
-== Changelog ==
+## Changelog ##
 
-= 2.0.1 =
+### 2.0.1 ###
 
 * Correcting the print form of og-tag content
 * Included "Settings" link in the Plugins page
 * Change in option page
 
-= 2.0.0 =
+### 2.0.0 ###
 
 * Code refactoring for WordPress standards
 * Ready for translation (pt_BR)
 * New default image and it is "translatable" now
 
-= 1.1.4 =
+### 1.1.4 ###
 
 * Created a compatibility option with plugins and themes that use filters in wp_title.
 
-= 1.1.3 =
+### 1.1.3 ###
 
 * Optimized plugin files.
 * Improved security.
 * Integration with WordPress upload to the default image.
 
-= 1.1.2 =
+### 1.1.2 ###
 
 * Optimized query to database of plugin options.
 
-= 1.1 =
+### 1.1 ###
 
 * Added to the official WordPress repository
 
-= 1.0 =
+### 1.0 ###
 
 * Add Open Graph object type ("website" for home page and "article" for posts and articles).
 * Add the tags with properties on the pages and according to the Open Graph API documentation.
@@ -82,6 +82,6 @@ After downloading the ZIP file:
 
 Suggestions? -> http://wordpress.org/support/plugin/og-tags
 
-== Screenshots ==
+## Screenshots ##
 
 1.  OG Tags - Dashboard
