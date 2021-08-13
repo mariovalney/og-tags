@@ -96,16 +96,27 @@ if ( isset( $_POST['ogtags_saving'] ) ) {
 			<?php
 				$cf7_slug = "contact-form-7/wp-contact-form-7.php";
 				$chete_slug = "cf7-html-email-template-extension/cf7-html-email-template-extension.php";
+                $cftz_slug = "cf7-to-zapier/cf7-to-zapier.php";
 
 				if ( file_exists( WP_PLUGIN_DIR . "/" . $cf7_slug ) && is_plugin_active( $cf7_slug ) ) {
 					echo "<h2>" . __( 'Usando o Contact Form 7?', OG_TAGS_TEXTDOMAIN ) . "</h2>";
 					if ( ! file_exists( WP_PLUGIN_DIR . "/" . $chete_slug ) ) {
-						echo '<p>' . __( "Recomentamos instalar o plugin", OG_TAGS_TEXTDOMAIN ) . '<br><a href="https://wordpress.org/plugins/cf7-html-email-template-extension/" target="_blank">CF7 - HTML Email Template Extension</a><br>' . __( "e deixar seus e-mails mais profissionais?", OG_TAGS_TEXTDOMAIN ) . '</p>';
-					} else if ( ! is_plugin_active( $chete_slug ) ) {
-						echo '<p>' . __( "O que acha de ativar o plugin", OG_TAGS_TEXTDOMAIN ) . '<br><a href="' . admin_url( "plugins.php#the-list" ) . '" target="_blank">CF7 - HTML Email Template Extension</a><br>' . __( "e deixar seus e-mails mais profissionais?", OG_TAGS_TEXTDOMAIN ) . '</p>';
-					} else {
-						echo '<p>' . __( "Obrigado por usar também o plugin", OG_TAGS_TEXTDOMAIN ) . '<br><strong>CF7 - HTML Email Template Extension</strong></p>';
-					}
+                        echo '<p>' . __( "Recomentamos instalar o plugin", OG_TAGS_TEXTDOMAIN ) . '<br><a href="https://wordpress.org/plugins/cf7-html-email-template-extension/" target="_blank">CF7 - HTML Email Template Extension</a><br>' . __( "e deixar seus e-mails mais profissionais?", OG_TAGS_TEXTDOMAIN ) . '</p>';
+                    } else if ( ! is_plugin_active( $chete_slug ) ) {
+                        echo '<p>' . __( "O que acha de ativar o plugin", OG_TAGS_TEXTDOMAIN ) . '<br><a href="' . admin_url( "plugins.php#the-list" ) . '" target="_blank">CF7 - HTML Email Template Extension</a><br>' . __( "e deixar seus e-mails mais profissionais?", OG_TAGS_TEXTDOMAIN ) . '</p>';
+                    } else {
+                        echo '<p>' . __( "Obrigado por usar também o plugin", OG_TAGS_TEXTDOMAIN ) . '<br><strong>CF7 - HTML Email Template Extension</strong></p>';
+                    }
+
+                    echo '<hr style="margin: 20px 40%">';
+
+                    if ( ! file_exists( WP_PLUGIN_DIR . "/" . $cftz_slug ) ) {
+                        echo '<p>' . __( "Recomentamos instalar o plugin", OG_TAGS_TEXTDOMAIN ) . '<br><a href="https://wordpress.org/plugins/cf7-to-zapier/" target="_blank">CF7 to Webhook</a><br>' . __( "para integrar com qualquer sistema via webhooks?", OG_TAGS_TEXTDOMAIN ) . '</p>';
+                    } else if ( ! is_plugin_active( $cftz_slug ) ) {
+                        echo '<p>' . __( "O que acha de ativar o plugin", OG_TAGS_TEXTDOMAIN ) . '<br><a href="' . admin_url( "plugins.php#the-list" ) . '" target="_blank">CF7 to Webhook</a><br>' . __( "para integrar com qualquer sistema via webhooks?", OG_TAGS_TEXTDOMAIN ) . '</p>';
+                    } else {
+                        echo '<p>' . __( "Obrigado por usar também o plugin", OG_TAGS_TEXTDOMAIN ) . '<br><strong>CF7 to Webhook</strong></p>';
+                    }
 				}
 			?>
 		</aside>
