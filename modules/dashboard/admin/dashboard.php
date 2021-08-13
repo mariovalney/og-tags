@@ -128,7 +128,7 @@ if ( isset( $_POST['ogtags_saving'] ) ) {
 		
 		<div class="row">
 			<h3><?php _e( 'Configurações', OG_TAGS_TEXTDOMAIN ) ?></h3>
-			<p><?php _e( 'O plugin reconhece o', OG_TAGS_TEXTDOMAIN ) ?> <strong><?php _e( 'nome e descrição', OG_TAGS_TEXTDOMAIN ) ?></strong> <?php _e( 'do seu site, que você já configurou, quando estava instalando o Wordpress!', OG_TAGS_TEXTDOMAIN ) ?></p>
+			<p><?php _e( 'O plugin reconhece o', OG_TAGS_TEXTDOMAIN ) ?> <strong><?php _e( 'nome e descrição', OG_TAGS_TEXTDOMAIN ) ?></strong> <?php _e( 'do seu site, que você já configurou, quando estava instalando o WordPress!', OG_TAGS_TEXTDOMAIN ) ?></p>
 			<p><?php _e( 'Mas, se por algum motivo ou estratégia de divulgação, você quiser alterar esse conteúdo, o plugin deixa livre para você escolher um', OG_TAGS_TEXTDOMAIN ) ?> <strong><?php _e( 'nome e descrição', OG_TAGS_TEXTDOMAIN ) ?></strong> <?php _e( 'próprios para serem incluidos nas OG Tags e consequentemente serem vistos no Facebook.', OG_TAGS_TEXTDOMAIN ) ?></p>
 			<p><?php _e( 'Para isso, basta preencher os campos acima, na seção "Dados do Site".', OG_TAGS_TEXTDOMAIN ) ?></p>
 			<p><?php _e( 'Na seção Imagem Padrão, você pode incluir a URL de uma imagem a ser usada tanto para a Home do seu site, quanto nos casos em que o artigo não tem uma Imagem Destacada.', OG_TAGS_TEXTDOMAIN ) ?></p>

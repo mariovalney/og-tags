@@ -119,7 +119,7 @@ msgstr ""
 
 #: modules/dashboard/admin/dashboard.php:103
 msgid ""
-"do seu site, que você já configurou, quando estava instalando o Wordpress!"
+"do seu site, que você já configurou, quando estava instalando o WordPress!"
 msgstr ""
 
 #: modules/dashboard/admin/dashboard.php:104

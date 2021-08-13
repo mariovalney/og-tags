@@ -7,8 +7,8 @@
  *
  * Plugin Name:       OG Tags
  * Plugin URI:        http://projetos.mariovalney.com/og-tags
- * Description:       A plugin for optimization of Open Graph Tags for Wordpress sites.
- * Version:           2.0.1
+ * Description:       A plugin for optimization of Open Graph Tags for WordPress sites.
+ * Version:           2.0.2
  * Author:            Mário Valney
  * Author URI:        http://mariovalney.com
  * License:           GPL-2.0+
@@ -328,7 +328,7 @@ if ( ! class_exists( 'OG_Tags' ) ) {
  */
 function og_tags_start() {
 
-	define( 'OG_TAGS_VERSION', '2.0.1' );
+	define( 'OG_TAGS_VERSION', '2.0.2' );
 	define( 'OG_TAGS_TEXTDOMAIN', 'og-tags' );
 	define( 'OG_TAGS_TAG', 'og_tags_core' );
 

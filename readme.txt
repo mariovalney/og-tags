@@ -3,8 +3,8 @@ Contributors: mariovalney
 Donate link: https://projetos.mariovalney.com/og-tags/
 Tags: open graph, facebook, social, tags, Social Plugins
 Requires at least: 3.5
-Tested up to: 5.5
-Stable tag: trunk
+Tested up to: 5.8
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,11 @@ After downloading the ZIP file:
 6.  Once it is complete, activate the plugin.
 
 == Changelog ==
+
+= 2.0.2 =
+
+* Security patch. Please update.
+* Thanks for Mr. Ryota Nakazato for responsible disclosure.
 
 = 2.0.1 =
 
