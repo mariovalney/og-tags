@@ -6,26 +6,26 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 $ogtags_options = get_option( 'ogtags_options' );
 
 // Recebendo os dados após salvar
-if ( isset( $_POST["ogtags_saving"] ) ) {
+if ( isset( $_POST['ogtags_saving'] ) ) {
+    check_admin_referer( 'og-tags-dashboard' );
 
-	$ogtags_update_fbdmins 			= ( isset( $_POST["ogtags_update_fbdmins"] ) ) 			? $_POST["ogtags_update_fbdmins"] 			: $ogtags_options['ogtags_fbadmins'];
-	$ogtags_update_publisher 		= ( isset( $_POST["ogtags_update_publisher"] ) ) 		? $_POST["ogtags_update_publisher"] 		: $ogtags_options['ogtags_publisher'];
-	$ogtags_update_image_default	= ( isset( $_POST["ogtags_update_image_default"] ) ) 	? $_POST["ogtags_update_image_default"] 	: $ogtags_options['ogtags_image_default'];
-	$ogtags_update_sitename 		= ( isset( $_POST["ogtags_update_sitename"] ) ) 		? $_POST["ogtags_update_sitename"] 			: $ogtags_options['ogtags_nomedoblog'];
-	$ogtags_update_sitedescriotion	= ( isset( $_POST["ogtags_update_sitedescription"] ) ) 	? $_POST["ogtags_update_sitedescription"] 	: $ogtags_options['ogtags_descricaodoblog'];
-	$ogtags_update_debugfilter 		= ( isset( $_POST["ogtags_update_debugfilter"] ) ) 		? $_POST["ogtags_update_debugfilter"] 		: "0";
+	$ogtags_update_fbdmins 			= ( isset( $_POST['ogtags_update_fbdmins'] ) ) 			? $_POST['ogtags_update_fbdmins'] 			: $ogtags_options['ogtags_fbadmins'];
+	$ogtags_update_publisher 		= ( isset( $_POST['ogtags_update_publisher'] ) ) 		? $_POST['ogtags_update_publisher'] 		: $ogtags_options['ogtags_publisher'];
+	$ogtags_update_image_default	= ( isset( $_POST['ogtags_update_image_default'] ) ) 	? $_POST['ogtags_update_image_default'] 	: $ogtags_options['ogtags_image_default'];
+	$ogtags_update_sitename 		= ( isset( $_POST['ogtags_update_sitename'] ) ) 		? $_POST['ogtags_update_sitename'] 			: $ogtags_options['ogtags_nomedoblog'];
+	$ogtags_update_sitedescriotion	= ( isset( $_POST['ogtags_update_sitedescription'] ) ) 	? $_POST['ogtags_update_sitedescription'] 	: $ogtags_options['ogtags_descricaodoblog'];
+	$ogtags_update_debugfilter 		= ( isset( $_POST['ogtags_update_debugfilter'] ) ) 		? $_POST['ogtags_update_debugfilter'] 		: '0';
 
 	$ogtags_options = array(
-		'ogtags_fbadmins' 			=> $ogtags_update_fbdmins, 
-		'ogtags_publisher' 			=> $ogtags_update_publisher,
-		'ogtags_image_default' 		=> $ogtags_update_image_default,
-		'ogtags_nomedoblog' 		=> $ogtags_update_sitename,
-		'ogtags_descricaodoblog' 	=> $ogtags_update_sitedescriotion,
-		'ogtags_debug_filter' 		=> $ogtags_update_debugfilter,
+		'ogtags_fbadmins' 			=> sanitize_text_field( $ogtags_update_fbdmins ),
+		'ogtags_publisher' 			=> sanitize_text_field( $ogtags_update_publisher ),
+		'ogtags_image_default' 		=> sanitize_text_field( $ogtags_update_image_default ),
+		'ogtags_nomedoblog' 		=> sanitize_text_field( $ogtags_update_sitename ),
+		'ogtags_descricaodoblog' 	=> sanitize_text_field( $ogtags_update_sitedescriotion ),
+		'ogtags_debug_filter' 		=> sanitize_text_field( $ogtags_update_debugfilter ),
 	);
 
 	update_option( 'ogtags_options', $ogtags_options );
-
 } ?>
 
 <div class="wrap ogtags">
@@ -35,6 +35,7 @@ if ( isset( $_POST["ogtags_saving"] ) ) {
 			<h2>OG TAGS - <?php _e( 'Área de Administração', OG_TAGS_TEXTDOMAIN ) ?></h2>
 
 			<form id="ogtagssettings" action="" method="POST">
+                <?php wp_nonce_field( 'og-tags-dashboard' ); ?>
 				<h3>
 					<?php _e( 'Dados do Site', OG_TAGS_TEXTDOMAIN ) ?>
 				</h3>

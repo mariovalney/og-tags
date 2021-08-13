@@ -132,6 +132,7 @@ if ( ! class_exists( 'OG_Tags_Front' ) ) {
 
 			$options = $this->get_options();
 
+            echo '<!-- OG TAGS -->' . "\n";
 			echo '<meta property="og:site_name" content="' . $options['ogtags_nomedoblog'] . '">' . "\n";
 
 			$fbadmins = explode( " ", $options['ogtags_fbadmins'] );
